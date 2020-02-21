@@ -1,0 +1,96 @@
+source "~/.mutt/user"
+
+# IMAP config
+set imap_user="$my_username@$my_domain"
+set imap_check_subscribed="yes"
+set imap_list_subscribed="yes"
+set timeout=15
+set mail_check=90
+set imap_keepalive=180
+set imap_idle
+unset mark_old
+set ssl_use_sslv3=yes
+
+# SMTP config
+set realname = $my_realname
+set from = "$my_username@$my_domain"
+set hostname = $my_domain
+set smtp_url = "smtp://$my_username@$my_domain@outlook.office365.com:587/"
+set ssl_force_tls = yes
+set smtp_authenticators = "login"
+set smtp_pass="$my_app_password"
+set imap_pass="$my_app_password"
+
+# Folders
+set folder="imaps://outlook.office365.com/"
+set spoolfile= +INBOX
+set postponed= +Drafts
+set record= +"Sent Items"
+set trash = +"Deleted Items"
+mailboxes = +Inbox \
+            +Inbox/mailing-list \
+            +"Junk Email" \
+            +Archive \
+            +Notes \
+            +"Sent Items" \
+            +"Deleted Items"
+
+# Sidebar
+set sidebar_visible = yes
+set sidebar_format = "%B%?N? [%N]?%*"
+set mail_check_stats
+
+# Index
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
+# Contacts
+set signature="~/.mutt/signature"
+set alias_file = "~/.mutt/contacts.list"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+# Pager
+auto_view text/html text/calendar application/ics applica/pdf
+alternative_order text/html text/plain text/enriched
+unignore Message-Id
+
+# Other
+set mailcap_path = ~/.mutt/mailcap
+set header_cache = ~/.mutt/header_cache/
+set editor = "vim"
+set pipe_decode = yes
+
+# KEYBINDINGS
+
+# Vim-like keybindings
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+# Sidebar
+bind index,pager <Down> sidebar-next
+bind index,pager <Up> sidebar-prev
+bind index,pager <Right> sidebar-open
+
+# Git patch workflow
+bind index,pager \Cs decode-copy
+macro index L '| git am -s'\n
+
+macro index ,- <limit>!~=\n
+macro index ,a <limit>all\n
+macro index ,u <limit>~U\n
+
+# Workaround for duplicate sent messages, more info:
+# https://sysadmin.compxtreme.ro/mutt-delete-duplicate-e-mail-messages/
+# This will effectively purge all duplicate copies of sent mail, allowing for
+# cleaner-looking threads.
+folder-hook . 'set record="^"'
+folder-hook . push "<delete-pattern>~=<enter>"
