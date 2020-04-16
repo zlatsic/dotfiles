@@ -27,13 +27,7 @@ set spoolfile= +INBOX
 set postponed= +Drafts
 set record= +"Sent Items"
 set trash = +"Deleted Items"
-mailboxes = +Inbox \
-            +Inbox/mailing-list \
-            +"Junk Email" \
-            +Archive \
-            +Notes \
-            +"Sent Items" \
-            +"Deleted Items"
+source "~/.mutt/mailboxes"
 
 # Sidebar
 set sidebar_visible = yes

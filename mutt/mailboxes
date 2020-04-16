@@ -1,0 +1,6 @@
+mailboxes = +Inbox \
+            +"Junk Email" \
+            +Archive \
+            +Notes \
+            +"Sent Items" \
+            +"Deleted Items"

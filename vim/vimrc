@@ -65,6 +65,13 @@ inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
+"gitgutter keymappings
+map ghn :GitGutterNextHunk<CR>
+map ghN :GitGutterPrevHunk<CR>
+map ghs :GitGutterStageHunk<CR>
+map ghu :GitGutterUndoHunk<CR>
+map ghp :GitGutterPreviewHunk<CR>
+
 function DarkTheme()
     "colorscheme sublimemonokai
     colorscheme vim-monokai-tasty
@@ -75,7 +82,7 @@ function LightTheme()
 endfunction
 
 call DarkTheme()
-set colorcolumn=81
+set colorcolumn=80
 
 set matchpairs=(:),{:},[:],<:>
 set number
