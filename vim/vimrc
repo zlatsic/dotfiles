@@ -2,6 +2,7 @@
 execute pathogen#infect()
 
 filetype plugin on
+set encoding=utf-8
 
 "Autoclose-related bugfix
 if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
