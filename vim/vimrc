@@ -72,6 +72,8 @@ map ghs :GitGutterStageHunk<CR>
 map ghu :GitGutterUndoHunk<CR>
 map ghp :GitGutterPreviewHunk<CR>
 
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
 function DarkTheme()
     "colorscheme sublimemonokai
     colorscheme vim-monokai-tasty
