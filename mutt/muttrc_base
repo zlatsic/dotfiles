@@ -1,0 +1,59 @@
+# Doesn't contain connection options, configure a separate muttrc with
+# connection options and source this file for the general settings.
+
+# Sidebar
+set sidebar_visible = yes
+set sidebar_format = "%B%?N? [%N]?%*"
+set sidebar_short_path
+set sidebar_delim_chars="/"
+set sidebar_folder_indent
+set sidebar_indent_string="  "
+set mail_check_stats
+
+# Index
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
+# Pager
+auto_view text/html text/calendar application/ics applica/pdf
+alternative_order text/plain text/html text/enriched
+unignore Message-Id
+
+# Other
+set mailcap_path = ~/.mutt/mailcap
+set header_cache = ~/.mutt/header_cache/
+set editor = "vim"
+set pipe_decode = yes
+
+# KEYBINDINGS
+
+# Vim-like keybindings
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+# Sidebar
+bind index,pager <Down> sidebar-next
+bind index,pager <Up> sidebar-prev
+bind index,pager <Right> sidebar-open
+
+# Git patch workflow
+bind index,pager \Cs decode-copy
+macro index L '| git am -s'\n
+
+macro index ,- <limit>!~=\n
+macro index ,a <limit>all\n
+macro index ,u <limit>~U\n
+
+# Workaround for duplicate sent messages, more info:
+# https://sysadmin.compxtreme.ro/mutt-delete-duplicate-e-mail-messages/
+# This will effectively purge all duplicate copies of sent mail, allowing for
+# cleaner-looking threads.
+folder-hook . 'set record="^"'
+folder-hook . push "<delete-pattern>~=<enter>"

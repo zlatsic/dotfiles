@@ -40,7 +40,8 @@ let python_highlight_all = 1
 
 " indentLine
 let g:indentLine_setConceal = 2
-let g:indentline_concealcursor = ""
+let g:indentLine_concealcursor = "inc"
+let g:indentLine_char = '┊'
 
 " ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
@@ -49,16 +50,12 @@ let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target|dist|build)|
 map <C-s> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" nerdcommenter
+let NERDDefaultAlign='left'
+
 "gundo
 let g:gundo_prefer_python3 = 1
 nnoremap <F5> :GundoToggle<CR>
-
-"ultisnips
-let g:UltiSnipsExpandTrigger="<F8>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsListSnippets="<F9>"
 
 "custom insert keymappings
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
@@ -73,7 +70,8 @@ map ghs :GitGutterStageHunk<CR>
 map ghu :GitGutterUndoHunk<CR>
 map ghp :GitGutterPreviewHunk<CR>
 
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+"gitblame mappings
+nnoremap gb :<C-u>call gitblame#echo()<CR>
 
 function DarkTheme()
     "colorscheme sublimemonokai
@@ -97,7 +95,8 @@ set shiftwidth=4
 set cursorline
 set statusline=_%f
 set title
-set mouse=n
+set mouse=a
+set ttymouse=sgr
 set modifiable
 set undoreload=0
 set conceallevel=0
@@ -109,3 +108,4 @@ set clipboard=unnamed
 
 
 autocmd BufWrite AirlineRefresh
+autocmd BufNewFile,BufRead *.py set keywordprg=python\ -m\ pydoc
