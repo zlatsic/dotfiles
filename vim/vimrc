@@ -39,8 +39,8 @@ let python_version_3 = 1
 let python_highlight_all = 1
 
 " indentLine
-let g:indentLine_setConceal = 0
-let g:indentLine_conceallevel = 2
+let g:indentLine_setConceal = 3
+let g:indentLine_conceallevel = 3
 let g:indentLine_concealcursor = "inc"
 let g:indentLine_char = '┊'
 
@@ -55,8 +55,28 @@ map <C-s> :NERDTreeToggle <bar> NERDTreeMirror<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 
+" nerdtree git plugin, colors instead of icons
+let g:NERDTreeGitStatusNodeColorization = 1
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "⋆",    
+    \ "Staged"    : "•",    
+    \ "Untracked" : "∘",    
+    \ "Dirty"     : "⁖",    
+    \ "Clean"     : "✔︎",           
+    \ }
+
+let g:NERDTreeColorMapCustom = {
+    \ "Modified"  : "#528AB3",
+    \ "Staged"    : "#538B54",
+    \ "Untracked" : "#BE5849",
+    \ "Dirty"     : "#299999",
+    \ "Clean"     : "#87939A" 
+    \ } 
+
 " vim-devicons
-let g:webdevicons_conceal_nerdtree_brackets=1
+let g:webdevicons_unicode_decorate_folder_nodes = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " nerdcommenter
 let NERDDefaultAlign='left'
@@ -67,6 +87,8 @@ nnoremap <F5> :GundoToggle<CR>
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 1
 
 "custom insert keymappings
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
