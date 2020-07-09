@@ -52,6 +52,10 @@ nnoremap <C-P> :CtrlPCurWD<CR>
 "filetype plugin indent on
 map <C-s> :NERDTreeToggle <bar> NERDTreeMirror<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
+
+" vim-devicons
+let g:webdevicons_conceal_nerdtree_brackets=1
 
 " nerdcommenter
 let NERDDefaultAlign='left'
@@ -59,6 +63,9 @@ let NERDDefaultAlign='left'
 "gundo
 let g:gundo_prefer_python3 = 1
 nnoremap <F5> :GundoToggle<CR>
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
 
 "custom insert keymappings
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
@@ -102,7 +109,6 @@ set mouse=a
 set ttymouse=sgr
 set modifiable
 set undoreload=0
-set conceallevel=0
 
 set directory^=$HOME/.vim/tmp//
 
