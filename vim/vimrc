@@ -45,9 +45,12 @@ let g:indentLine_char = '┊'
 
 " ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
+nnoremap <C-P> :CtrlPCurWD<CR>
 
 " nerdtree
-map <C-s> :NERDTreeToggle<CR>
+"syntax on
+"filetype plugin indent on
+map <C-s> :NERDTreeToggle <bar> NERDTreeMirror<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " nerdcommenter

@@ -1,9 +1,6 @@
 [submodule "vim/bundle/AutoClose"]
 	path = vim/bundle/AutoClose
 	url = https://github.com/vim-scripts/AutoClose.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/gundo.vim"]
 	path = vim/bundle/gundo.vim
 	url = http://github.com/sjl/gundo.vim.git
@@ -55,3 +52,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "vim/bundle/vim-devicons"]
+	path = vim/bundle/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons.git
