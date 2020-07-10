@@ -1,4 +1,7 @@
+"let g:pathogen_disabled = ['AutoClose', 'ctrlp.vim', 'git-blame.vim', 'gundo.vim', 'indentLine', 'nerdcommenter', 'nerdtree-git-plugin', 'papercolor-theme', 'python-syntax', 'syntastic', 'vim-airline', 'vim-gitgutter', 'vim-monokai-tasty', 'vim-multiple-cursors', 'vim-python-pep8-indent', 'vim-sensible', 'vim-surround', 'YouCompleteMe']
+
 " Plugin related
+
 execute pathogen#infect()
 
 filetype plugin on
@@ -39,7 +42,7 @@ let python_version_3 = 1
 let python_highlight_all = 1
 
 " indentLine
-let g:indentLine_conceallevel = 2
+let g:indentLine_conceallevel = 1
 let g:indentLine_concealcursor = "inc"
 let g:indentLine_char = '┊'
 let g:indentLine_setConceal = 1
@@ -53,30 +56,36 @@ nnoremap <C-P> :CtrlPCurWD<CR>
 "filetype plugin indent on
 map <C-s> :NERDTreeToggle <bar> NERDTreeMirror<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowHidden=1
+autocmd BufEnter NERD_tree* :let indentLine_enabled = 0
+let NERDTreeShowHidden = 1
+let NERDTreeMouseMode = 2
 
-" nerdtree git plugin, colors instead of icons
+" vim-devicons
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
+let g:DevIconsEnableFoldersOpenClose = 1
+
+"nerdtree git colors
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeGitStatusWithFlags = 1
+
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "⋆",    
-    \ "Staged"    : "•",    
-    \ "Untracked" : "∘",    
-    \ "Dirty"     : "⁖",    
-    \ "Clean"     : "✔︎",           
+    \ "Modified"  : "⋆",            
+    \ "Staged"    : "•",            
+    \ "Untracked" : "∘",            
+    \ "Dirty"     : "⁖",            
+    \ "Clean"     : "✔︎",                   
     \ }
 
 let g:NERDTreeColorMapCustom = {
-    \ "Modified"  : "#528AB3",
-    \ "Staged"    : "#538B54",
-    \ "Untracked" : "#BE5849",
-    \ "Dirty"     : "#299999",
-    \ "Clean"     : "#87939A" 
+    \ "Modified"  : "#528AB3",  
+    \ "Staged"    : "#538B54",  
+    \ "Untracked" : "#BE5849",  
+    \ "Dirty"     : "#299999",  
+    \ "Clean"     : "#87939A"   
     \ } 
-
-" vim-devicons
-let g:webdevicons_unicode_decorate_folder_nodes = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " nerdcommenter
 let NERDDefaultAlign='left'
@@ -89,6 +98,9 @@ nnoremap <F5> :GundoToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 1
+
+" vim-python-pep8-indent
+let g:python_pep8_indent_hang_closing = 1
 
 "custom insert keymappings
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
