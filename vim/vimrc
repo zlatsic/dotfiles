@@ -39,10 +39,10 @@ let python_version_3 = 1
 let python_highlight_all = 1
 
 " indentLine
-let g:indentLine_setConceal = 3
-let g:indentLine_conceallevel = 3
+let g:indentLine_conceallevel = 2
 let g:indentLine_concealcursor = "inc"
 let g:indentLine_char = '┊'
+let g:indentLine_setConceal = 1
 
 " ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
