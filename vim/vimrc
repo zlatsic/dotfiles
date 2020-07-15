@@ -24,6 +24,14 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_rst_checkers = ['Sphinx']
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_style_error_symbol = '✠'
+let g:syntastic_warning_symbol = '∆'
+let g:syntastic_style_warning_symbol = '≈'
+let g:syntastic_enable_signs = 1
+let g:syntastic_enable_highlighting = 1
+highlight SyntasticErrorLine ctermbg=124
+highlight SyntasticWarningLine ctermbg=124
 
 map <C-l> <ESC>:call SyntasticToggle()<CR>
 let g:syntastic_is_open = 0  
@@ -42,10 +50,10 @@ let python_version_3 = 1
 let python_highlight_all = 1
 
 " indentLine
-let g:indentLine_conceallevel = 1
+let g:indentLine_conceallevel = 2
 let g:indentLine_concealcursor = "inc"
 let g:indentLine_char = '┊'
-let g:indentLine_setConceal = 1
+let g:indentLine_setConceal = 2
 
 " ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
@@ -59,18 +67,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd BufEnter NERD_tree* :let indentLine_enabled = 0
 let NERDTreeShowHidden = 1
 let NERDTreeMouseMode = 2
+let NERDTreeDirArrowExpandable = ''
+let NERDTreeDirArrowCollapsible = ''
 
-" vim-devicons
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
-let g:DevIconsEnableFoldersOpenClose = 1
-
-"nerdtree git colors
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:NERDTreeGitStatusNodeColorization = 1
-let g:NERDTreeGitStatusWithFlags = 1
-
+" nerdtree git plugin
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "⋆",            
     \ "Staged"    : "•",            
@@ -79,13 +79,40 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",                   
     \ }
 
-let g:NERDTreeColorMapCustom = {
-    \ "Modified"  : "#528AB3",  
-    \ "Staged"    : "#538B54",  
-    \ "Untracked" : "#BE5849",  
-    \ "Dirty"     : "#299999",  
-    \ "Clean"     : "#87939A"   
-    \ } 
+" vim-devicons
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+
+" vim-nerdtree-syntax-highlight
+
+let s:brown = "905532"
+let s:aqua =  "3AFFDB"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
+
+let g:WebDevIconsDefaultFolderSymbolColor = s:beige
+let g:WebDevIconsDefaultFileSymbolColor = s:blue
+
+let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+let g:NERDTreeSyntaxDisableDefaultExactMatches = 1
+let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
+let g:NERDTreeSyntaxEnabledExtensions = ['c', 'h', 'c++', 'cpp', 'py', 'rb', 'js', 'css', 'html']
+let g:NERDTreeSyntaxEnabledExactMatches = ['node_modules', 'favicon.ico']
 
 " nerdcommenter
 let NERDDefaultAlign='left'
@@ -95,12 +122,25 @@ let g:gundo_prefer_python3 = 1
 nnoremap <F5> :GundoToggle<CR>
 
 " vim-airline
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 1
 
 " vim-python-pep8-indent
 let g:python_pep8_indent_hang_closing = 1
+
+" ycm
+let g:ycm_auto_hover = ''
+
+nmap <leader>D <plug>(YCMHover)
+augroup MyYCMCustom
+  autocmd!
+  autocmd FileType py let b:ycm_hover = {
+    \ 'command': 'GetDoc',
+    \ 'syntax': &filetype
+    \ }
+augroup END
 
 "custom insert keymappings
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"

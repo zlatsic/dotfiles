@@ -5,6 +5,7 @@ lang/
 user
 signature
 mailboxes
+passwords.gpg
 
 ket/
 faks/
