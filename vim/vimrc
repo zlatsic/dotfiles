@@ -63,8 +63,8 @@ nnoremap <C-P> :CtrlPCurWD<CR>
 "syntax on
 "filetype plugin indent on
 map <C-s> :NERDTreeToggle <bar> NERDTreeMirror<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd BufEnter NERD_tree* :let indentLine_enabled = 0
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif | AirlineRefresh
+autocmd BufEnter NERD_tree* :let indentLine_enabled = 0 | AirlineRefresh
 let NERDTreeShowHidden = 1
 let NERDTreeMouseMode = 2
 let NERDTreeDirArrowExpandable = ''
