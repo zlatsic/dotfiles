@@ -1,5 +1,5 @@
 text/html;\
-    chromium-browser --new-window '%s' & sleep 1;\
+    chromium-browser '%s' & sleep 1;\
     description=HTML Text;\
     test=test -n "$DISPLAY";\
     nametemplate=%s.html;

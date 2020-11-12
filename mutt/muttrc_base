@@ -25,6 +25,7 @@ set mailcap_path = ~/.mutt/mailcap
 set header_cache = ~/.mutt/header_cache/
 set editor = "vim"
 set pipe_decode = yes
+set index_format = "%4C %Z %{%b %d} %-22.22F %s"
 
 # KEYBINDINGS
 
@@ -51,9 +52,12 @@ macro index ,- <limit>!~=\n
 macro index ,a <limit>all\n
 macro index ,u <limit>~U\n
 
+bind index,pager \Cr group-reply
+bind index,pager \Cl list-reply
+
 # Workaround for duplicate sent messages, more info:
 # https://sysadmin.compxtreme.ro/mutt-delete-duplicate-e-mail-messages/
 # This will effectively purge all duplicate copies of sent mail, allowing for
 # cleaner-looking threads.
-folder-hook . 'set record="^"'
-folder-hook . push "<delete-pattern>~=<enter>"
+# folder-hook . 'set record="^"'
+# folder-hook . push "<delete-pattern>~=<enter>"
