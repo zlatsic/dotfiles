@@ -1,5 +1,6 @@
 "let g:pathogen_disabled = ['AutoClose', 'ctrlp.vim', 'git-blame.vim', 'gundo.vim', 'indentLine', 'nerdcommenter', 'nerdtree-git-plugin', 'papercolor-theme', 'python-syntax', 'syntastic', 'vim-airline', 'vim-gitgutter', 'vim-monokai-tasty', 'vim-multiple-cursors', 'vim-python-pep8-indent', 'vim-sensible', 'vim-surround', 'YouCompleteMe']
 
+let g:pathogen_disabled = ['vim-multiple-cursors']
 " Plugin related
 
 execute pathogen#infect()
@@ -57,6 +58,7 @@ let g:indentLine_setConceal = 2
 
 " ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_show_hidden = 1
 nnoremap <C-P> :CtrlPCurWD<CR>
 
 " nerdtree
@@ -187,7 +189,6 @@ set undoreload=0
 
 set directory^=$HOME/.vim/tmp//
 
-set spelllang=en,hr
 set clipboard=unnamed
 
 

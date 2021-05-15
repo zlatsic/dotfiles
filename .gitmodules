@@ -67,3 +67,6 @@
 [submodule "vim/bundle/vim-fish"]
 	path = vim/bundle/vim-fish
 	url = https://github.com/dag/vim-fish.git
+[submodule "vim/bundle/vim-visual-multi"]
+	path = vim/bundle/vim-visual-multi
+	url = https://github.com/mg979/vim-visual-multi.git
