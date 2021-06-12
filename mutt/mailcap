@@ -1,5 +1,5 @@
 text/html;\
-    chromium-browser '%s' & sleep 1;\
+    brave '%s' & sleep 1;\
     description=HTML Text;\
     test=test -n "$DISPLAY";\
     nametemplate=%s.html;

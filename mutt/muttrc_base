@@ -61,3 +61,5 @@ bind index,pager \Cl list-reply
 # cleaner-looking threads.
 # folder-hook . 'set record="^"'
 # folder-hook . push "<delete-pattern>~=<enter>"
+
+source ~/.mutt/colorscheme
