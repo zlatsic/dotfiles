@@ -177,8 +177,6 @@ set number
 set foldcolumn=3
 set updatetime=100
 set foldmethod=indent
-set expandtab
-set shiftwidth=4
 set cursorline
 set statusline=_%f
 set title
@@ -193,7 +191,7 @@ set clipboard=unnamed
 
 
 autocmd BufWrite AirlineRefresh
-autocmd BufNewFile,BufRead *.py set keywordprg=python\ -m\ pydoc
+autocmd BufRead * :setlocal ts=4 sts=4 sw=4 expandtab autoindent
 
 " vim hardcodes background color erase even if the terminfo file does
 " not contain bce (not to mention that libvte based terminals
