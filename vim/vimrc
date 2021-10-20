@@ -1,6 +1,11 @@
-"let g:pathogen_disabled = ['AutoClose', 'ctrlp.vim', 'git-blame.vim', 'gundo.vim', 'indentLine', 'nerdcommenter', 'nerdtree-git-plugin', 'papercolor-theme', 'python-syntax', 'syntastic', 'vim-airline', 'vim-gitgutter', 'vim-monokai-tasty', 'vim-multiple-cursors', 'vim-python-pep8-indent', 'vim-sensible', 'vim-surround', 'YouCompleteMe']
+"let g:pathogen_disabled = ['00-nerdtree', '02-vim-devicons', 'ctrlp.vim',
+"            \ 'gundo.vim', 'nerdcommenter', 'python-syntax', 'vim-airline',
+"            \ 'vim-gitgutter', 'vim-nerdtree-syntax-highlight', 'vim-sensible',
+"            \ 'vim-visual-multi', '01-nerdtree-git-plugin', 'AutoClose',
+"            \ 'git-blame.vim', 'indentLine', 'papercolor-theme', 'syntastic',
+"            \ 'vim-fish', 'vim-monokai-tasty', 'vim-python-pep8-indent',
+"            \ 'vim-surround', 'YouCompleteMe']
 
-let g:pathogen_disabled = ['vim-multiple-cursors']
 " Plugin related
 
 execute pathogen#infect()
@@ -25,8 +30,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_rst_checkers = ['Sphinx']
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_style_error_symbol = '✠'
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_error_symbol = ''
+let g:syntastic_style_error_symbol = ''
 let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_enable_signs = 1
@@ -37,13 +43,13 @@ highlight SyntasticWarningLine ctermbg=124
 map <C-l> <ESC>:call SyntasticToggle()<CR>
 let g:syntastic_is_open = 0  
 function! SyntasticToggle()
-if g:syntastic_is_open == 1
-    lclose
-    let g:syntastic_is_open = 0 
-else
-    Errors
-    let g:syntastic_is_open = 1 
-endif
+    if g:syntastic_is_open == 1
+        lclose
+        let g:syntastic_is_open = 0 
+    else
+        Errors
+        let g:syntastic_is_open = 1 
+    endif
 endfunction
 
 " python-syntax
@@ -57,13 +63,11 @@ let g:indentLine_char = '┊'
 let g:indentLine_setConceal = 2
 
 " ctrlp
-let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target)|^(dist|build)|(\.(swp|ico|git|svn))$'
 let g:ctrlp_show_hidden = 1
 nnoremap <C-P> :CtrlPCurWD<CR>
 
-" nerdtree
-"syntax on
-"filetype plugin indent on
+"nerdtree
 map <C-s> :NERDTreeToggle <bar> NERDTreeMirror<CR>
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif | AirlineRefresh
 autocmd BufEnter NERD_tree* :let indentLine_enabled = 0 | AirlineRefresh
@@ -74,11 +78,16 @@ let NERDTreeDirArrowCollapsible = ''
 
 " nerdtree git plugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "⋆",            
-    \ "Staged"    : "•",            
-    \ "Untracked" : "∘",            
-    \ "Dirty"     : "⁖",            
-    \ "Clean"     : "✔︎",                   
+    \ 'Modified'  : '~',
+    \ 'Staged'    : '+',
+    \ 'Untracked' : '➜',
+    \ 'Renamed'   : '',
+    \ 'Unmerged'  : '═',
+    \ 'Deleted'   : '✖',
+    \ 'Dirty'     : '',
+    \ 'Clean'     : '',
+    \ 'Ignored'   : '☒',
+    \ 'Unknown'   : '?'
     \ }
 
 " vim-devicons
