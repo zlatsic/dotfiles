@@ -34,9 +34,6 @@
 [submodule "vim/bundle/vim-monokai-tasty"]
 	path = vim/bundle/vim-monokai-tasty
 	url = https://github.com/patstockwell/vim-monokai-tasty.git
-[submodule "vim/bundle/vim-multiple-cursors"]
-	path = vim/bundle/vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors
 [submodule "vim/bundle/vim-sensible"]
 	path = vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible
