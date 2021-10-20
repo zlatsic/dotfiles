@@ -40,9 +40,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/git-blame.vim"]
-	path = vim/bundle/git-blame.vim
-	url = https://github.com/zivyangll/git-blame.vim.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
@@ -67,3 +64,6 @@
 [submodule "vim/bundle/vim-visual-multi"]
 	path = vim/bundle/vim-visual-multi
 	url = https://github.com/mg979/vim-visual-multi.git
+[submodule "vim/bundle/vim-fugitive.git"]
+	path = vim/bundle/vim-fugitive.git
+	url = git@github.com:tpope/vim-fugitive.git
