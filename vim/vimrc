@@ -193,6 +193,7 @@ set mouse=a
 set ttymouse=sgr
 set modifiable
 set undoreload=0
+set belloff=all
 
 set directory^=$HOME/.vim/tmp//
 
