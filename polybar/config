@@ -28,34 +28,34 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/primary]
-monitor = ${env:MONITOR:DP-2}
+monitor = ${env:MONITOR:eDP1}
 width = 100%
-height = 35
+height = 27
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 3.0
 fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 1
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 1
 
-font-0 = FiraCode Nerd Font:style=Retina,Regular:size=16
-font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=16
+font-0 = FiraCode Nerd Font:style=Retina,Regular:size=11
+font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=11
 
 modules-left = bspwm i3
-modules-right = pulseaudio memory cpu temperature date powermenu
+modules-right = xbacklight pulseaudio memory cpu temperature battery eth wlan date powermenu
 
 tray-position = none
 ;tray-padding = 2
