@@ -113,6 +113,8 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+bindsym --release Print exec scrot -e 'xclip -selection clipboard -t image/png -i $f' -s /tmp/screenshot.png
+
 # focus the child container
 #bindsym $mod+d focus child
 

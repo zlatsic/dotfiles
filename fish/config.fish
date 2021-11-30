@@ -14,3 +14,5 @@ set PATH $PATH $HOME/.local/bin
 set EDS $HOME/venv/hat-eds/bin/activate.fish
 set CORE $HOME/venv/hat-core/bin/activate.fish
 set MMES $HOME/venv/mmes/bin/activate.fish
+
+status --is-interactive; and source (rbenv init -|psub)
