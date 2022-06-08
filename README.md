@@ -15,41 +15,15 @@ needs to be built. To properly install it, follow the [installation
 instructions on the plugin
 page](https://github.com/ycm-core/YouCompleteMe#installation). 
 
-Plugins used:
+Plugins used are listed in the ``/vim/bundle`` directory as submodules.
 
-* [AutoClose](https://github.com/vim-scripts/AutoClose.git)
-* [ctrlp.vim](https://github.com/kien/ctrlp.vim.git)
-* [gundo.vim](http://github.com/sjl/gundo.vim.git)
-* [indentLine](https://github.com/Yggdroot/indentLine.git)
-* [nerdcommenter](https://github.com/scrooloose/nerdcommenter.git)
-* [nerdtree](https://github.com/scrooloose/nerdtree.git)
-* [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin.git)
-* [papercolor-theme](https://github.com/NLKNguyen/papercolor-theme.git)
-* [python-syntax](https://github.com/hdima/python-syntax.git)
-* [syntastic](https://github.com/vim-syntastic/syntastic.git)
-* [ultisnips](https://github.com/SirVer/ultisnips.git)
-* [vim-airline](https://github.com/vim-airline/vim-airline.git)
-* [vim-gitgutter](https://github.com/airblade/vim-gitgutter.git)
-* [vim-monokai-tasty](https://github.com/patstockwell/vim-monokai-tasty.git)
-* [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors.git)
-* [vim-sensible](https://github.com/tpope/vim-sensible.git)
-* [vim-snippets](https://github.com/honza/vim-snippets.git)
-* [vim-surround](https://github.com/tpope/vim-surround.git)
-* [vim-vue](https://github.com/posva/vim-vue.git)
-* [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe.git)
+``ln -s ~/path/to/repo/vim ~/.vim``
 
 ## mutt
 
-Dotfiles for the mutt setup. The initial part of the ``muttrc`` file is made
-like a template for connecting to an office365 setup (found
-[here](https://github.com/ork/mutt-office365/blob/master/muttrc) and slightly
-altered it according to my needs). Create a user file by filling out the [user
-template file](./mutt/user_template) and create a text file named ``signature``
-with the desired signature. The contacts are stored in the ``contacts.list``
-file this can be created manually or automatically when you store the first
-alias.  The muttrc also assumes there will be a subfolder inside the inbox
-named ``mailing-list``, that mailbox might not work if you don't have this
-folder set up.
+Dotfiles for the mutt setup. Does not contain complete muttrc files as some of
+them contain email information I'd rather not make public, but the
+``muttrc_base`` file can be sourced in order to pick up the settings I use.
 
 Additional dependencies are used by mailcap. For HTML emails,
 [lynx](https://linux.die.net/man/1/lynx) is used for initial email preview.
@@ -58,7 +32,24 @@ opened in a [chromium](https://chromium.woolyss.com/download/) window. For
 videos, [vlc](https://www.videolan.org/vlc/) is used and for pdf files it's
 [zathura](https://wiki.archlinux.org/index.php/Zathura).
 
+``ln -s ~/path/to/repo/mutt ~/.mutt``
+
 ## tmux
 
-Not much to say here, the options are mostly taken from [this blog
+The options are mostly taken from [this blog
 post](https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/).
+
+``ln -s ~/path/to/repo/tmux ~/.tmux``
+``ln -s ~/path/to/repo/tmux.conf ~/.tmux.conf``
+
+## fish
+
+``ln -s ~/path/to/repo/fish ~/.config/fish``
+
+## i3
+
+``ln -s ~/path/to/repo/i3 ~/.config/i3``
+
+## polybar
+
+``ln -s ~/path/to/repo/polybar ~/.config/polybar``
