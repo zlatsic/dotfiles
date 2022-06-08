@@ -1,0 +1,52 @@
+set mbox_type=Maildir
+
+set folder="~/mail/koncar"
+set mask=".*"
+set record=+"Sent Items"
+set postponed=+Drafts
+set spoolfile=+INBOX
+set trash=+"Deleted Items"
+
+set realname = "Zlatan Sičanica"
+set from="zlatan.sicanica@koncar.hr"
+
+set sendmail="msmtp -a koncar"
+
+mailboxes =INBOX \
+	  =jira \
+	  =lists/hat-open \
+	  =lists/hat-open/dev =lists/hat-open/ba \
+	  =lists/eds \
+	  =lists/eds/dev =lists/eds/ba \
+	  =lists/bdv \
+	  =lists/bdv/dev =lists/bdv/ba \
+	  =lists/agc \
+	  =lists/agc/dev =lists/agc/ba \
+	  =lists/license \
+	  =confirmations \
+	  =finance \
+	  =bacon \
+	  =job \
+	  =misc \
+	  ='Deleted Items' \
+	  =Drafts \
+	  ='Sent Items'
+
+# Contacts
+set signature="~/.mutt/koncar/signature"
+set alias_file = "~/.mutt/koncar/contacts.list"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+source ~/.mutt/muttrc_base
+
+lists had-eds hat-eds-ba \
+      hat-open hat-open-ba \
+      hat-bdv hat-bdv-ba \
+      hat-agc hat-agc-ba
+
+subscribe hat-eds hat-eds-ba \
+	  hat-open hat-open-ba \
+	  hat-bdv hat-bdv-ba \
+	  hat-agc hat-agc-ba
