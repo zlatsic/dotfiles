@@ -6,13 +6,13 @@ alias gmutt="mutt -F $HOME/.mutt/gmail/muttrc"
 alias drawio="/opt/draw.io/drawio"
 
 set cur_basename (basename $PWD)
-source $HOME/venv/$cur_basename/bin/activate.fish 2> /dev/null
 
 set PATH $PATH $HOME/scripts /usr/lib/postgresql/11/bin/
 set PATH $PATH $HOME/.local/bin
 
-set EDS $HOME/venv/hat-eds/bin/activate.fish
-set CORE $HOME/venv/hat-core/bin/activate.fish
-set MMES $HOME/venv/mmes/bin/activate.fish
-
 status --is-interactive; and source (rbenv init -|psub)
+
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
+
+direnv hook fish | source
