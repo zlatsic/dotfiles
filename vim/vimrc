@@ -63,7 +63,7 @@ let g:indentLine_char = '┊'
 let g:indentLine_setConceal = 2
 
 " ctrlp
-let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target)|^(dist|build)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](__pycache__|node_modules|target|venv)|^(dist|build)|(\.(swp|ico|git|svn))$'
 let g:ctrlp_show_hidden = 1
 nnoremap <C-P> :CtrlPCurWD<CR>
 
