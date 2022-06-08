@@ -67,3 +67,6 @@
 [submodule "vim/bundle/vim-fugitive.git"]
 	path = vim/bundle/vim-fugitive.git
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vim/bundle/vim-LanguageTool"]
+	path = vim/bundle/vim-LanguageTool
+	url = git@github.com:dpelle/vim-LanguageTool.git
