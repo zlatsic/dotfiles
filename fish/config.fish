@@ -12,7 +12,14 @@ set PATH $PATH $HOME/.local/bin
 
 status --is-interactive; and source (rbenv init -|psub)
 
+<<<<<<< Updated upstream
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
 
 direnv hook fish | source
+=======
+direnv hook fish | source
+
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
+>>>>>>> Stashed changes

@@ -28,7 +28,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/primary]
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -57,7 +57,7 @@ font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=11
 modules-left = bspwm i3
 modules-right = xbacklight pulseaudio memory cpu temperature battery eth wlan date powermenu
 
-tray-position = none
+tray-position = right
 ;tray-padding = 2
 ;tray-background = #A00000
 
@@ -76,9 +76,18 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/secondary]
-;monitor = ${env:MONITOR:HDMI-1}
+;monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:DVI-I-2-2}
 inherit = bar/primary
-monitor = ${env:MONITOR:HDMI-1}
+modules-right = i3
+modules-left = none
+padding-right = 0
+tray-position = none
+
+[bar/tertiary]
+;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:DVI-I-1-1}
+inherit = bar/primary
 modules-right = i3
 modules-left = none
 padding-right = 0
@@ -137,7 +146,7 @@ label-song-ellipsis = true
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU"
+format-prefix = "CPU "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage:2%%
 
