@@ -3,3 +3,4 @@ let g:syntastic_tex_lacheck_quiet_messages = { 'regex': '\Vpossible unwanted spa
 setlocal colorcolumn=121
 set textwidth=120
 set sw=4
+set cole=0
