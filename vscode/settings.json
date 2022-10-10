@@ -14,4 +14,6 @@
     "workbench.colorTheme": "Monokai",
     "files.autoSave": "afterDelay",
     "window.zoomLevel": -1,
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "window.menuBarVisibility": "toggle"
 }
