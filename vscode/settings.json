@@ -1,19 +1,25 @@
 {
     "editor.fontFamily": "'FiraCode Nerd Font Mono', 'monospace', monospace",
-    "[python]": {
-        "editor.rulers": [
-            79
-        ],
-    },
+    "editor.rulers": [79],
     "[javascript]": {
-        "editor.rulers": [
-            119
-        ],
+        "editor.rulers": [ 119 ],
+    },
+    "[typescript]": {
+        "editor.rulers": [ 119 ],
+    },
+    "[latex]": {
+        "editor.rulers": [ 120 ],
     },
     "terminal.integrated.defaultProfile.linux": "fish",
     "workbench.colorTheme": "Monokai",
     "files.autoSave": "afterDelay",
-    "window.zoomLevel": -1,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    "terminal.external.linuxExec": "kitty",
+    "notebook.lineNumbers": "on",
+    "workbench.editorAssociations": {
+        "*.pdf": "default"
+    },
+    "debug.onTaskErrors": "debugAnyway",
+    "window.zoomLevel": -1
 }
