@@ -1,4 +1,6 @@
-let g:python3_host_prog = '/opt/homebrew/bin/python3'
+if has('macunix')
+  let g:python3_host_prog = '/opt/homebrew/bin/python3'
+endif
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
