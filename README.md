@@ -19,6 +19,12 @@ auto-install the plugin but these dependencies are not included.
 
 ``ln -s ~/path/to/repo/vim ~/.vim``
 
+## nvim
+
+Same setup as vim, but also make sure to run:
+
+``ln -s ~/path/to/repo/nvim ~/.config/nvim``
+
 ## mutt
 
 Dotfiles for the mutt setup. Does not contain complete muttrc files as some of
