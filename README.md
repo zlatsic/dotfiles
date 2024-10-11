@@ -7,15 +7,15 @@ directory to subdirectories or files in the clone of this repo.
 
 Setup for base usage:
 1. Install vim
-2. Install [pathogen](https://github.com/tpope/vim-pathogen)
-3. Load plugin submodules: `git submodule update --init`
+2. Install [vim-plug](https://github.com/junegunn/vim-plug)
+3. Run vim and call `:PlugInstall`
 
 Base usage doesn't cover the ``YouCompleteMe`` plugin for autocompletion as it
 needs to be built. To properly install it, follow the [installation
 instructions on the plugin
-page](https://github.com/ycm-core/YouCompleteMe#installation). 
-
-Plugins used are listed in the ``/vim/bundle`` directory as submodules.
+page](https://github.com/ycm-core/YouCompleteMe#installation). It requires
+`cmake` and `pynvim` (if using nvim) to install. The vimrc is configured to
+auto-install the plugin but these dependencies are not included.
 
 ``ln -s ~/path/to/repo/vim ~/.vim``
 

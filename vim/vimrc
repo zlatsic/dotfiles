@@ -1,14 +1,43 @@
-"let g:pathogen_disabled = ['00-nerdtree', '02-vim-devicons', 'ctrlp.vim',
-"            \ 'gundo.vim', 'nerdcommenter', 'python-syntax', 'vim-airline',
-"            \ 'vim-gitgutter', 'vim-nerdtree-syntax-highlight', 'vim-sensible',
-"            \ 'vim-visual-multi', '01-nerdtree-git-plugin', 'AutoClose',
-"            \ 'git-blame.vim', 'indentLine', 'papercolor-theme', 'syntastic',
-"            \ 'vim-fish', 'vim-monokai-tasty', 'vim-python-pep8-indent',
-"            \ 'vim-surround', 'YouCompleteMe']
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
-" Plugin related
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
 
-execute pathogen#infect()
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'vim-scripts/AutoClose'
+Plug 'sjl/gundo.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'hdima/python-syntax'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'dag/vim-fish'
+Plug 'mg979/vim-visual-multi'
+Plug 'tpope/vim-fugitive'
+Plug 'dpelle/vim-LanguageTool'
+Plug 'github/copilot.vim'
+call plug#end()
 
 filetype plugin on
 set encoding=utf-8
@@ -166,9 +195,6 @@ map ghs :GitGutterStageHunk<CR>
 map ghu :GitGutterUndoHunk<CR>
 map ghp :GitGutterPreviewHunk<CR>
 
-"gitblame mappings
-nnoremap gb :<C-u>call gitblame#echo()<CR>
-
 function DarkTheme()
     "colorscheme sublimemonokai
     colorscheme vim-monokai-tasty
@@ -190,7 +216,6 @@ set cursorline
 set statusline=_%f
 set title
 set mouse=a
-set ttymouse=sgr
 set modifiable
 set undoreload=0
 set belloff=all
@@ -198,7 +223,6 @@ set belloff=all
 set directory^=$HOME/.vim/tmp//
 
 set clipboard=unnamed
-
 
 autocmd BufWrite AirlineRefresh
 
