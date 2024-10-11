@@ -4,6 +4,7 @@ alias mutt="neomutt"
 alias fmutt="mutt -F $HOME/.mutt/faks/muttrc"
 alias gmutt="mutt -F $HOME/.mutt/gmail/muttrc"
 alias drawio="/opt/draw.io/drawio"
+alias vim="nvim"
 
 set cur_basename (basename $PWD)
 
