@@ -23,7 +23,7 @@ auto-install the plugin but these dependencies are not included.
 
 Same setup as vim, but also make sure to run:
 
-``ln -s ~/path/to/repo/nvim ~/.config/nvim``
+``ln -s ~/path/to/repo/vim ~/.config/nvim``
 
 ## mutt
 
