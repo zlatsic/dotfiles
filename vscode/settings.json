@@ -21,5 +21,6 @@
         "*.pdf": "default"
     },
     "debug.onTaskErrors": "debugAnyway",
+    "window.titleBarStyle": "custom",
     "window.zoomLevel": -1
 }
