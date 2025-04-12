@@ -7,8 +7,11 @@ killall -q polybar
 
 # Launch example
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-polybar primary 2>&1 | tee -a /tmp/polybar1.log & disown
-polybar secondary 2>&1 | tee -a /tmp/polybar1.log & disown
-polybar tertiary 2>&1 | tee -a /tmp/polybar1.log & disown
+grep -E [\[]bar $HOME/.config/polybar/bars.ini \
+	| sed -e 's/^\[bar\///' -e 's/\]$//' \
+	| while read -r bar ; do
+	echo launching bar "$bar"
+	polybar $bar 2>&1 | tee -a /tmp/polybar-${bar}.log & disown
+done
 
 echo "Bars launched..."
