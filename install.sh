@@ -3,7 +3,11 @@
 dotfiles_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 echo running for dotfiles dir $dotfiles_dir
 
+ln -sn $dotfiles_dir/aliases.sh $HOME/.aliases.sh
+ln -sn $dotfiles_dir/system-aliases.sh $HOME/.system-aliases.sh
+
 ln -sn $dotfiles_dir/fish $HOME/.config/fish
+curl https://raw.githubusercontent.com/ahmetb/kubectl-aliases/refs/heads/master/.kubectl_aliases.fish --output $HOME/.config/fish/
 
 ln -sn $dotfiles_dir/tmux $HOME/.tmux
 ln -sn $dotfiles_dir/tmux/tmux.conf $HOME/.tmux.conf
@@ -29,5 +33,9 @@ if [ "$uname" == "Darwin" ]; then
 	ln -sn $dotfiles_dir/zsh/zshrc $HOME/.zshrc
 	ln -sn $dotfiles_dir/zsh/system-zshrc $HOME/.system-zshrc
 	git clone ssh://git@github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
+
+	ln -sn $dotfiles_dir/k9s/ $HOME/Library/Application\ Support/k9s
+
+	curl https://raw.githubusercontent.com/ahmetb/kubectl-aliases/refs/heads/master/.kubectl_aliases --output $HOME/.kubectl_aliases.zsh
 fi
  

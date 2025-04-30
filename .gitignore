@@ -1,1 +1,12 @@
-zsh/system-zshrc
+system-aliases.sh
+
+fish/kubectl_aliases.fish
+fish/system.fish
+
+k9s/clusters
+k9s/k9s.log
+k9s/screen-dumps
+
+zsh/system.zsh
+
+vim/plugged
