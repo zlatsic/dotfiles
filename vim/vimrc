@@ -2,43 +2,30 @@ if has('macunix')
   let g:python3_host_prog = '/opt/homebrew/bin/python3'
 endif
 
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
-
 call plug#begin()
-Plug 'tpope/vim-sensible'
-Plug 'patstockwell/vim-monokai-tasty'
-Plug 'vim-scripts/AutoClose'
-Plug 'sjl/gundo.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/nerdcommenter'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'hdima/python-syntax'
-Plug 'vim-syntastic/syntastic'
-Plug 'vim-airline/vim-airline'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dag/vim-fish'
+Plug 'dpelle/vim-LanguageTool'
+Plug 'fatih/vim-go'
+Plug 'github/copilot.vim'
+Plug 'hdima/python-syntax'
+Plug 'mg979/vim-visual-multi'
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdcommenter'
+Plug 'sjl/gundo.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'ryanoasis/vim-devicons'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'dag/vim-fish'
-Plug 'mg979/vim-visual-multi'
-Plug 'tpope/vim-fugitive'
-Plug 'dpelle/vim-LanguageTool'
-Plug 'github/copilot.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/AutoClose'
 call plug#end()
 
 filetype plugin on
@@ -49,43 +36,20 @@ if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
   inoremap <silent> <C-[>OC <RIGHT>
 endif
 
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_rst_checkers = ['Sphinx']
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_error_symbol = ''
-let g:syntastic_style_error_symbol = ''
-let g:syntastic_warning_symbol = '∆'
-let g:syntastic_style_warning_symbol = '≈'
-let g:syntastic_enable_signs = 1
-let g:syntastic_enable_highlighting = 1
-highlight SyntasticErrorLine ctermbg=124
-highlight SyntasticWarningLine ctermbg=124
-
-map <C-l> <ESC>:call SyntasticToggle()<CR>
-let g:syntastic_is_open = 0  
-function! SyntasticToggle()
-    if g:syntastic_is_open == 1
-        lclose
-        let g:syntastic_is_open = 0 
-    else
-        Errors
-        let g:syntastic_is_open = 1 
-    endif
-endfunction
-
 " python-syntax
 let python_version_3 = 1
 let python_highlight_all = 1
+
+" go-vim
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
 
 " indentLine
 let g:indentLine_conceallevel = 2
@@ -157,18 +121,6 @@ let g:airline#extensions#tabline#show_splits = 1
 
 " vim-python-pep8-indent
 let g:python_pep8_indent_hang_closing = 1
-
-" ycm
-let g:ycm_auto_hover = ''
-
-nmap <leader>D <plug>(YCMHover)
-augroup MyYCMCustom
-  autocmd!
-  autocmd FileType py let b:ycm_hover = {
-    \ 'command': 'GetDoc',
-    \ 'syntax': &filetype
-    \ }
-augroup END
 
 "custom insert keymappings
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"

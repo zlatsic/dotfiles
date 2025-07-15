@@ -19,3 +19,6 @@ k9s/screen-dumps
 zsh/system.zsh
 
 vim/plugged
+
+i3/system.config
+polybar/bars.ini
