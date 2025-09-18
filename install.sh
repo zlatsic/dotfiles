@@ -7,7 +7,7 @@ ln -sn $dotfiles_dir/aliases.sh $HOME/.aliases.sh
 ln -sn $dotfiles_dir/system-aliases.sh $HOME/.system-aliases.sh
 
 ln -sn $dotfiles_dir/fish $HOME/.config/fish
-curl https://raw.githubusercontent.com/ahmetb/kubectl-aliases/refs/heads/master/.kubectl_aliases.fish --output $HOME/.config/fish/
+curl https://raw.githubusercontent.com/ahmetb/kubectl-aliases/refs/heads/master/.kubectl_aliases.fish --output $HOME/.config/fish/kubectl_aliases.fish
 
 ln -sn $dotfiles_dir/tmux $HOME/.tmux
 ln -sn $dotfiles_dir/tmux/tmux.conf $HOME/.tmux.conf
