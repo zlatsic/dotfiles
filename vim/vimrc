@@ -12,7 +12,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dag/vim-fish'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'fatih/vim-go'
-Plug 'github/copilot.vim'
 Plug 'hdima/python-syntax'
 Plug 'mg979/vim-visual-multi'
 Plug 'patstockwell/vim-monokai-tasty'
@@ -121,12 +120,6 @@ let g:airline#extensions#tabline#show_splits = 1
 
 " vim-python-pep8-indent
 let g:python_pep8_indent_hang_closing = 1
-
-"custom insert keymappings
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
 "gitgutter keymappings
 map ghn :GitGutterNextHunk<CR>

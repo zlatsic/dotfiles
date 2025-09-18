@@ -9,8 +9,7 @@ fish/functions/tide/*
 fish/functions/tide.fish
 fish/functions/_tide*
 fish/completions/tide.fish
-fish/conf.d/_tide_init.fish
-fish/conf.d/tide_show_on_cmd.fish
+fish/conf.d/*
 
 k9s/clusters
 k9s/k9s.log
