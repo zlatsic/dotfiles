@@ -1,0 +1,64 @@
+" System-specific vim configuration
+" Copy this file to system.vim and customize for your system
+
+" Python path
+" macOS with Homebrew:
+"   let g:python3_host_prog = '/opt/homebrew/bin/python3'
+" Linux:
+"   let g:python3_host_prog = '/usr/bin/python3'
+" Custom:
+"   let g:python3_host_prog = '/path/to/your/python3'
+if has('macunix')
+  let g:python3_host_prog = '/opt/homebrew/bin/python3'
+endif
+
+" PATH additions for tools
+" macOS with Homebrew:
+"   let $PATH = $PATH . ':/opt/homebrew/bin:' . $HOME . '/go/bin'
+" Linux:
+"   let $PATH = $PATH . ':/usr/local/bin:' . $HOME . '/go/bin'
+let $PATH = $PATH . ':/opt/homebrew/bin:' . $HOME . '/go/bin'
+
+" ============================================================================
+" Bazel/Monorepo Configuration (OPTIONAL)
+" ============================================================================
+" Uncomment and customize this section if you work with a Bazel monorepo
+" Replace ~/code/monorepo with your actual monorepo path
+
+" " Helper function to find workspace root
+" function! FindBazelWorkspace()
+"   let l:dir = expand('%:p') != '' ? expand('%:p:h') : getcwd()
+"   while l:dir != '/' && l:dir != $HOME
+"     if filereadable(l:dir . '/WORKSPACE') || filereadable(l:dir . '/WORKSPACE.bazel')
+"       return l:dir
+"     endif
+"     let l:dir = fnamemodify(l:dir, ':h')
+"   endwhile
+"   return ''
+" endfunction
+"
+" " Get current package path relative to workspace
+" function! GetBazelPackage()
+"   let l:workspace = FindBazelWorkspace()
+"   if l:workspace == ''
+"     return ''
+"   endif
+"   let l:current = expand('%:p') != '' ? expand('%:p:h') : getcwd()
+"   let l:relative = strpart(l:current, len(l:workspace) + 1)
+"   if l:relative == ''
+"     return '//...'
+"   endif
+"   return '//' . l:relative . '/...'
+" endfunction
+"
+" augroup bazel_commands
+"   autocmd!
+"   " Replace ~/code/monorepo with your monorepo path
+"   autocmd BufRead,BufNewFile ~/code/monorepo/* nnoremap <leader>bb :execute 'below 12split \| terminal cd ' . FindBazelWorkspace() . ' && bazel build ' . GetBazelPackage()<CR>
+"   autocmd BufRead,BufNewFile ~/code/monorepo/* nnoremap <leader>bt :execute 'below 12split \| terminal cd ' . FindBazelWorkspace() . ' && bazel test ' . GetBazelPackage()<CR>
+"   autocmd BufRead,BufNewFile ~/code/monorepo/* nnoremap <leader>br :execute 'below 12split \| terminal cd ' . FindBazelWorkspace() . ' && bazel run '<CR>
+"   autocmd BufRead,BufNewFile ~/code/monorepo/* nnoremap <leader>bB :execute 'below 12split \| terminal cd ' . FindBazelWorkspace() . ' && bazel build //...'<CR>
+"   autocmd BufRead,BufNewFile ~/code/monorepo/* nnoremap <leader>bT :execute 'below 12split \| terminal cd ' . FindBazelWorkspace() . ' && bazel test //...'<CR>
+"   autocmd BufRead,BufNewFile ~/code/monorepo/* nnoremap <leader>b? :echo 'Workspace: ' . FindBazelWorkspace() . ' - Package: ' . GetBazelPackage()<CR>
+"   autocmd BufRead,BufNewFile ~/code/monorepo/* nnoremap <leader>bs :execute 'below 12split \| terminal cd ' . FindBazelWorkspace() . ' && bazel run @io_bazel_rules_go//go -- work sync && echo "✓ Workspace synced. Restarting gopls..." && sleep 1'<CR>:CocRestart<CR>
+" augroup END

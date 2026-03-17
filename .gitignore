@@ -1,5 +1,7 @@
 fish/kubectl_aliases.fish
 fish/conf.d/*
+fish/fish_variables
+fish/functions/_fzf_complete_bazel.fish
 
 k9s/clusters
 k9s/k9s.log
@@ -8,6 +10,10 @@ k9s/screen-dumps
 zsh/system.zsh
 
 vim/plugged
+vim/system.vim
+vim/undo/
+vim/tmp/
 
 i3/system.config
 polybar/bars.ini
+system-aliases.sh
